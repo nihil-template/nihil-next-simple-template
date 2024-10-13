@@ -1,0 +1,17 @@
+.header,
+.container,
+.footer{
+  @apply font-500 text-black-base;
+}
+
+.header {}
+
+.nav {}
+
+.logo {}
+
+.container {}
+
+.footer {
+
+}
