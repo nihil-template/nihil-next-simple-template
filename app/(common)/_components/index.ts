@@ -15,3 +15,5 @@ export { ColorCodeText } from './ColorCodeText';
 export { SliderItem } from './SliderItem';
 export { SliderInput } from './SliderInput';
 export { SliderNumberInput } from './SliderNumberInput';
+export { ColorSwatch } from './ColorSwatch';
+export { ColorSwatchContainer } from './ColorSwatchContainer';

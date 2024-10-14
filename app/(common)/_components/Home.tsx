@@ -5,9 +5,19 @@ import {
   Button, Input, Label, Canvas, Card, Screen,
   ConfigBody, ConfigRow, TitleNumberItem, ConfigItem,
   ColorItem, ColorInput, ColorCodeText,
-  SliderItem, SliderInput, SliderNumberInput
+  SliderItem, SliderInput, SliderNumberInput,
+  ColorSwatch, ColorSwatchContainer
 } from '@/app/(common)/_components';
 import { useThumbnailState } from '@/src/hooks/useThumbnailState';
+
+const bgColorSwatches = [
+  { color: '#E34F26', name: 'HTML', },
+  { color: '#1572B6', name: 'CSS', },
+  { color: '#F7DF1E', name: 'JavaScript', },
+  { color: '#3178C6', name: 'TypeScript', },
+  { color: '#FFFFFF', name: '흰색', },
+  { color: '#000000', name: '검정', },
+];
 
 export function Home() {
   const state = useThumbnailState();
@@ -94,6 +104,14 @@ export function Home() {
     }
   }, []);
 
+  const onChangeTextColor = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    state.setTextColor(e.target.value);
+  }, []);
+
+  const onChangeBgColor = useCallback((color: string) => {
+    state.setBgColor(color);
+  }, []);
+
   return (
     <Card>
       <div>
@@ -125,16 +143,30 @@ export function Home() {
             <ConfigItem>
               <Label htmlFor='bgColor'>배경색</Label>
               <ColorItem>
-                <ColorInput id='bgColor' type='color' value={state.bgColor} onChange={(e) => state.setBgColor(e.target.value)} />
+                <ColorInput id='bgColor' type='color' value={state.bgColor} onChange={(e) => onChangeBgColor(e.target.value)} />
                 <ColorCodeText>{state.bgColor}</ColorCodeText>
               </ColorItem>
+              <ColorSwatchContainer>
+                {bgColorSwatches.map(({ color, name, }) => (
+                  <ColorSwatch
+                    key={color}
+                    color={color}
+                    onClick={() => onChangeBgColor(color)}
+                    aria-label={`${name} 배경색 ${color}`}
+                    title={name}
+                  />
+                ))}
+              </ColorSwatchContainer>
             </ConfigItem>
             <ConfigItem>
               <Label htmlFor='textColor'>글자색</Label>
               <ColorItem>
-                <ColorInput id='textColor' type='color' value={state.textColor} onChange={(e) => state.setTextColor(e.target.value)} />
+                <ColorInput id='textColor' type='color' value={state.textColor} onChange={onChangeTextColor} />
                 <ColorCodeText>{state.textColor}</ColorCodeText>
               </ColorItem>
+              <ColorSwatchContainer>
+                {/* 여기에 추후 글자색 견본을 추가할 수 있습니다 */}
+              </ColorSwatchContainer>
             </ConfigItem>
           </ConfigRow>
           <ConfigRow>
