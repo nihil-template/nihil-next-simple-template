@@ -1,21 +1,22 @@
 'use client';
 
 import React from 'react';
-import styled from 'styled-components';
-import { size } from '@/src/styles';
+import { Header } from './Header';
+import { Nav } from './Nav';
+import { Main } from './Main';
+import { Footer } from './Footer';
 
 interface Props {
   children?: React.ReactNode;
 }
 
-const Main = styled.main`
-  padding: ${size.normal[5]};
-`;
-
 export function AppLayout({ children, }: Props) {
   return (
     <>
+      <Header />
+      <Nav />
       <Main>{children}</Main>
+      <Footer />
     </>
   );
 }
