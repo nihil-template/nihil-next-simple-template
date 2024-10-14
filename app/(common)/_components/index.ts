@@ -1,7 +1,17 @@
-export { Header } from './layoutBlock/Header';
-export { Nav } from './layoutBlock/Nav';
-export { AppMain } from './layoutBlock/AppMain';
-export { Logo } from './layoutBlock/Logo';
-export { Footer } from './layoutBlock/Footer';
-
 export { Home } from './Home';
+export { Input } from './Input';
+export { Button } from './Button';
+export { Label } from './Label';
+export { Canvas } from './Canvas';
+export { Card } from './Card';
+export { Screen } from './Screen';
+export { ConfigBody } from './ConfigBody';
+export { ConfigRow } from './ConfigRow';
+export { TitleNumberItem } from './TitleNumberItem';
+export { ConfigItem } from './ConfigItem';
+export { ColorItem } from './ColorItem';
+export { ColorInput } from './ColorInput';
+export { ColorCodeText } from './ColorCodeText';
+export { SliderItem } from './SliderItem';
+export { SliderInput } from './SliderInput';
+export { SliderNumberInput } from './SliderNumberInput';
